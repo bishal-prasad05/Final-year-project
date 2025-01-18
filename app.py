@@ -57,10 +57,15 @@ if selected == 'Data Form':
     with col1:
         thal = st.text_input(
             'thal: 0 = normal; 1 = fixed defect; 2 = reversable defect')
+    with col1:
+        separated_values=st.text_input("Enter the separated values ")
     heart_disease_result = ""
+    separated_values=separated_values.split()
     if st.button("Heart Disease Test Result"):
-        user_input = [age, sex, cp, trestbps, chol, fbs,
-                      restecg, thalach, exang, oldpeak, slope, ca, thal]
+        if(separated_values!=[]):
+          user_input=separated_values
+        else:
+          user_input = [age, sex, cp, trestbps, chol, fbs,restecg, thalach, exang, oldpeak, slope, ca, thal]
         user_input = [float(x) for x in user_input]
         prediction = heart_disease_model.predict([user_input])
         if prediction[0] == 1:
