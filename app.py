@@ -60,7 +60,7 @@ if selected == 'Data Form':
     with col1:
         separated_values=st.text_input("Enter the separated values ")
     heart_disease_result = ""
-    separated_values=separated_values.split()
+    separated_values=separated_values.split(" ")
     if st.button("Heart Disease Test Result"):
         if(separated_values!=[]):
           user_input=separated_values
