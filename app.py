@@ -4,24 +4,12 @@ import os
 from streamlit_option_menu import option_menu
 
 st.set_page_config(page_title="Heart Disease Prediction",
-                   layout="wide", page_icon="🧊")
+                   layout="wide", page_icon="❤️")
 
 working_dir = os.path.dirname(os.path.abspath(__file__))
 
 heart_disease_model = pickle.load(
     open(f'{working_dir}/saved_models/heart.pkl', 'rb'))
-
-
-NewBMI_Overweight = 0
-NewBMI_Underweight = 0
-NewBMI_Obesity_1 = 0
-NewBMI_Obesity_2 = 0
-NewBMI_Obesity_3 = 0
-NewInsulinScore_Normal = 0
-NewGlucose_Low = 0
-NewGlucose_Normal = 0
-NewGlucose_Overweight = 0
-NewGlucose_Secret = 0
 
 with st.sidebar:
     selected = option_menu("Coronary Artery Disease Prediction",
@@ -39,32 +27,32 @@ if selected == 'Data Form':
     with col1:
         age = st.text_input("Age")
     with col2:
-        sex = st.text_input("Sex")
+        sex = st.text_input("Sex (M=1 / F=0)")
     with col3:
-        cp = st.text_input("Chest Pain Types")
+        cp = st.text_input("Chest Pain Types (CP)")
     with col1:
-        trestbps = st.text_input("Resting Blood Pressure")
+        trestbps = st.text_input("Resting Blood Pressure (RestBP)")
     with col2:
         chol = st.text_input("Serum Cholestroal in mg/dl")
     with col3:
-        fbs = st.text_input('Fasting Blood Sugar > 120 mg/dl')
+        fbs = st.text_input('Fasting Blood Sugar > 120 mg/dl (FBS) ')
     with col1:
-        restecg = st.text_input('Resting Electrocardiographic results')
+        restecg = st.text_input('Resting Electrocardiographic results (RestECG)')
 
     with col2:
-        thalach = st.text_input('Maximum Heart Rate achieved')
+        thalach = st.text_input('Maximum Heart Rate achieved (Thalach)')
 
     with col3:
-        exang = st.text_input('Exercise Induced Angina')
+        exang = st.text_input('Exercise Induced Angina (Exang)')
 
     with col1:
-        oldpeak = st.text_input('ST depression induced by exercise')
+        oldpeak = st.text_input('ST depression induced by exercise (Oldpeak)')
 
     with col2:
         slope = st.text_input('Slope of the peak exercise ST segment')
 
     with col3:
-        ca = st.text_input('Major vessels colored by flourosopy')
+        ca = st.text_input('Major vessels colored by flourosopy (CA)')
 
     with col1:
         thal = st.text_input(
